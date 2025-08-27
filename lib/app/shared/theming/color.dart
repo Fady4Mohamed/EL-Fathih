@@ -2,6 +2,8 @@ import 'dart:ui';
 
 class ColorsManager {
   static const Color darkGray = Color(0xFF1c1C1E);
+  static const Color main = Color(0xFF653b8a);
+  static const Color mainlight = Color(0xFF896ba4);
   static const Color normalGray = Color(0xFF434343);
   static const Color white = Color(0xFFFEF7FF);
   static const Color mediumGrey = Color(0xFF303030);

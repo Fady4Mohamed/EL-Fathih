@@ -1,3 +1,5 @@
+import 'package:el_fathih/app/core/routing/routes.dart';
+import 'package:el_fathih/app/shared/navigatio_bar_view.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -10,6 +12,8 @@ class AppRouter {
       //   return MaterialPageRoute(builder: (_) => const RegisterView());
       // case Routes.home:
       //   return MaterialPageRoute(builder: (_) => const HomeView());
+      case Routes.navigatioBarView:
+        return MaterialPageRoute(builder: (_) => const NavigatioBarView());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

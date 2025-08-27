@@ -44,4 +44,9 @@ class TextStyles {
     fontSize: 11.sp,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle font13whiteRegular = TextStyle(
+    color: Colors.white,
+    fontSize: 13.sp,
+    fontWeight: FontWeight.w400,
+  );
 }

@@ -1,3 +1,5 @@
+import 'package:el_fathih/app/shared/navigatio_bar_view.dart';
+import 'package:el_fathih/app/shared/theming/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,11 +17,10 @@ class ElFathih extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
           ),
         ),
-        //  scaffoldBackgroundColor: ColorsManager.mainGray,
-        // colorScheme:ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        brightness: Brightness.dark,
+        scaffoldBackgroundColor: ColorsManager.white,
+        colorScheme:ColorScheme.fromSeed(seedColor: ColorsManager.mainlight),
       ),
-      home: const Scaffold(),
+      home: const NavigatioBarView( choice: 0,),
     );
   }
 }
