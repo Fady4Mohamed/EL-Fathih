@@ -1,3 +1,4 @@
+import 'package:el_fathih/app/featuers/home/presentation/ui/home_view.dart';
 import 'package:el_fathih/app/shared/theming/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,52 +21,46 @@ class _NavigatioBarViewState extends State<NavigatioBarView> {
 
   final List<Widget> pages = [
     // Home
-    const SizedBox(),
+    const HomeView(),
     // Schedule
     const SizedBox(),
     // News
     const SizedBox(),
     // Profile
-    const SizedBox()
-  ];
-  final List<String> text = [
-    // Home
-    'Home',
-    // schedule
-    'Schedule',
-    // News
-    'News',
-    // Profile
-    'Profile',
+    const SizedBox(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: SizedBox(
+        child: Container(
+          color: ColorsManager.mainlight,
           height: 813.h,
           child: SafeArea(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              pages[choice],
-              Container(
-                height: 80.h,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                    color: ColorsManager.mainlight,
-                    border: Border(top: BorderSide(width: 2, color:ColorsManager.main))),
-                child: Row(
-                  children: [
-                    _buildNavIcon('assets/svg/home.svg', 0, choice==0),
-                    _buildNavIcon('assets/svg/schedule.svg', 1, choice==1),
-                    _buildNavIcon('assets/svg/news.svg', 2, choice==2),
-                    _buildNavIcon('assets/svg/profile.svg', 3, choice==3),
-                  ],
-                ),
-              )
-            ],
-          )),
+              child: Container(
+                color: ColorsManager.white,
+                child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                pages[choice],
+                Container(
+                  height: 70.h,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                      color: ColorsManager.mainlight,
+                      border: Border(top: BorderSide(width: 3, color:ColorsManager.main))),
+                  child: Row(
+                    children: [
+                      _buildNavIcon('assets/svg/profile.svg', 3, choice==3),
+                      _buildNavIcon('assets/svg/news.svg', 2, choice==2),
+                      _buildNavIcon('assets/svg/schedule.svg', 1, choice==1),
+                      _buildNavIcon('assets/svg/home.svg', 0, choice==0),
+                    ],
+                  ),
+                )
+                            ],
+                          ),
+              )),
         ),
       ),
     );

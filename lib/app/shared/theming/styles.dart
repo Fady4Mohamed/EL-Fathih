@@ -1,3 +1,4 @@
+import 'package:el_fathih/app/shared/theming/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,14 +35,31 @@ class TextStyles {
     fontSize: 17.sp,
     fontWeight: FontWeight.w500,
   );
+  static TextStyle font20whiteSemiBold = TextStyle(
+    color: Colors.white,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle font20BlackSemiBold = TextStyle(
+    color: Colors.black,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle font15whiteRegular = TextStyle(
     color: Colors.white,
     fontSize: 15.sp,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle font11whiteRegular = TextStyle(
-    color: Colors.white,
-    fontSize: 11.sp,
+  static TextStyle font16grayRegular = TextStyle(
+      color: Colors.white.withValues(alpha: 0.6),
+
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+  
+  );
+  static TextStyle font14GrayRegular = TextStyle(
+    color: ColorsManager.lightGray,
+    fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
   static TextStyle font13whiteRegular = TextStyle(
