@@ -1,7 +1,9 @@
 import 'package:el_fathih/app/featuers/home/presentation/ui/home_view.dart';
+import 'package:el_fathih/app/featuers/schedule/presentation/manager/parts_filter_cubit/parts_filter_cubit.dart';
 import 'package:el_fathih/app/featuers/schedule/presentation/ui/schedule_view.dart';
 import 'package:el_fathih/app/shared/theming/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -24,10 +26,13 @@ class _NavigatioBarViewState extends State<NavigatioBarView> {
     // Home
     const HomeView(),
     // Schedule
-    const ScheduleView(),
+    BlocProvider(
+      create: (context) => PartsFilterCubit()..filterByAll(),
+      child: const ScheduleView(),
+    ),
     // News
     const SizedBox(),
-    // Profile
+    // Profile 
     const SizedBox(),
   ];
   @override
