@@ -37,49 +37,62 @@ class _NavigatioBarViewState extends State<NavigatioBarView> {
           color: ColorsManager.mainlight,
           height: 813.h,
           child: SafeArea(
-              child: Container(
-                color: ColorsManager.white,
-                child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                pages[choice],
-                Container(
-                  height: 70.h,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
+            child: Container(
+              color: ColorsManager.white,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  pages[choice],
+                  Container(
+                    height: 70.h,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
                       color: ColorsManager.mainlight,
-                      border: Border(top: BorderSide(width: 3, color:ColorsManager.main))),
-                  child: Row(
-                    children: [
-                      _buildNavIcon('assets/svg/profile.svg', 3, choice==3),
-                      _buildNavIcon('assets/svg/news.svg', 2, choice==2),
-                      _buildNavIcon('assets/svg/schedule.svg', 1, choice==1),
-                      _buildNavIcon('assets/svg/home.svg', 0, choice==0),
-                    ],
+                      border: Border(
+                        top: BorderSide(width: 3, color: ColorsManager.main),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        _buildNavIcon('assets/svg/profile.svg', 3, choice == 3),
+                        _buildNavIcon('assets/svg/news.svg', 2, choice == 2),
+                        _buildNavIcon(
+                          'assets/svg/schedule.svg',
+                          1,
+                          choice == 1,
+                        ),
+                        _buildNavIcon('assets/svg/home.svg', 0, choice == 0),
+                      ],
+                    ),
                   ),
-                )
-                            ],
-                          ),
-              )),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildNavIcon(String icon, int index,bool isActive) {
+  Widget _buildNavIcon(String icon, int index, bool isActive) {
     return Expanded(
       child: TextButton(
         style: TextButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(0),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         ),
         onPressed: () {
           setState(() {
             choice = index;
           });
         },
-        child: SvgPicture.asset(icon, height: 23.h, colorFilter: ColorFilter.mode(isActive?ColorsManager.main:Colors.white, BlendMode.srcIn)),
+        child: SvgPicture.asset(
+          icon,
+          height: 23.h,
+          colorFilter: ColorFilter.mode(
+            isActive ? ColorsManager.main : ColorsManager.whiteGrey,
+            BlendMode.srcIn,
+          ),
+        ),
       ),
     );
   }

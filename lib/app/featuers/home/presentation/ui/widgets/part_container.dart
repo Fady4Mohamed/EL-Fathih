@@ -1,4 +1,5 @@
 
+import 'package:el_fathih/app/shared/theming/color.dart';
 import 'package:el_fathih/app/shared/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,7 +42,14 @@ final String imagePath ;
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Image.asset(imagePath, width: 60.w, height: 60.h,),
+              child: Container(
+                  width: 70.w,
+                  height: 70.h,
+                  decoration: BoxDecoration(
+                    color: ColorsManager.whiteGrey,
+                    borderRadius: BorderRadius.circular(5.r),
+                  ),
+                child: Image.asset(imagePath, width: 60.w, height: 60.h,)),
             ),
           ],
         ),
