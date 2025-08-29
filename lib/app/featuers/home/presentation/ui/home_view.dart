@@ -9,14 +9,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(
+        physics: const ClampingScrollPhysics(),
         children: [
-          Stack(
-            children: [
-              BackgroundContainer(),
-              PartsList()
-            ],
-          ),
-
+          Stack(children: [BackgroundContainer(), PartsList()]),
         ],
       ),
     );
