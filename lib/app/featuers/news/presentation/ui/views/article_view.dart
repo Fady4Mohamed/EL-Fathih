@@ -17,7 +17,7 @@ class _ArticleViewState extends State<ArticleView>
   late AnimationController _slideController;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
-  ScrollController _scrollController = ScrollController();
+final  ScrollController _scrollController = ScrollController();
   double _scrollOffset = 0.0;
 
   @override

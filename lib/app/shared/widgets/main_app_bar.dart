@@ -7,15 +7,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainAppBar extends StatelessWidget {
   const MainAppBar({
-    super.key, required this.title,
+    super.key, required this.title,  this.color,
   });
 final String title;
+final Color? color;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
      padding:  EdgeInsets.symmetric(vertical: 10.h),
-      color: ColorsManager.mainlight,
-      child: Center(child: Text(title,style: TextStyles.font20whiteSemiBold,)));
+      color:color?? ColorsManager.mainlight,
+      child: Center(child: Text(title,style: TextStyles.font20whiteSemiBold.copyWith(color: color!=null ? ColorsManager.mainlight :null),)));
   }
 }
