@@ -45,6 +45,11 @@ class TextStyles {
     fontSize: 20.sp,
     fontWeight: FontWeight.w500,
   );
+  static TextStyle font18GrayRegular = TextStyle(
+    color: ColorsManager.normalGray,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w400,
+  );
   static TextStyle font20NevySemiBold = TextStyle(
     color: ColorsManager.main,
     fontSize: 20.sp,
@@ -53,6 +58,11 @@ class TextStyles {
 static TextStyle font14NevySemiBold = TextStyle(
     color: ColorsManager.main,
     fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle font16NevySemiBold = TextStyle(
+    color: ColorsManager.main,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w500,
   );
   static TextStyle font15whiteRegular = TextStyle(
