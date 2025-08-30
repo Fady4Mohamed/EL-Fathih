@@ -42,7 +42,7 @@ final Blog blog;
                     top: Radius.circular(10.r),
                   ),
                   child: Image.network(
-                    blog.imageUrl,
+                    blog.imageUrl!,
                     height: 180.h,
                     width: 345.w,
                     fit: BoxFit.cover,
@@ -52,7 +52,7 @@ final Blog blog;
                 Padding(
                   padding: EdgeInsets.only(right: 10.w),
                   child: Text(
-                    blog.title,
+                    blog.title!,
                     style: TextStyles.font20NevySemiBold,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -64,7 +64,7 @@ final Blog blog;
                   child: SizedBox(
                     width: 325.w,
                     child: Text(
-                      blog.introduction,
+                      blog.introduction!,
                       style: TextStyles.font14NevySemiBold,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,

@@ -89,7 +89,7 @@ class _ArticleViewState extends State<ArticleView>
                       child: Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(widget.blog.imageUrl),
+                            image: NetworkImage(widget.blog.imageUrl!),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -117,7 +117,7 @@ class _ArticleViewState extends State<ArticleView>
                         child: SizedBox(
                           width: 200.w,
                           child: Text(
-                            widget.blog.title,
+                            widget.blog.title!,
                             style: TextStyles.font20whiteSemiBold,
                           ),
                         ),

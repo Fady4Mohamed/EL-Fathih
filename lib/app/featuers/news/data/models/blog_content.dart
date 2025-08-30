@@ -1,7 +1,13 @@
+import 'package:hive/hive.dart';
+part 'blog_content.g.dart';
 
+@HiveType(typeId: 1)
 class BlogContent {
+  @HiveField(0)
   final String? subtitle;
+  @HiveField(1)
   final String? body;
+  @HiveField(2)
   final String? image;
 
   BlogContent({

@@ -12,9 +12,9 @@ class ArticleContent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 25.h),
       child: ListView.builder(
-        itemCount: blog.content.length,
+        itemCount: blog.content!.length,
         itemBuilder: (context, index) {
-          final content = blog.content[index];
+          final content = blog.content![index];
           if (content.body != null) {
             return Padding(
               padding: EdgeInsets.only(bottom: 25.h),
