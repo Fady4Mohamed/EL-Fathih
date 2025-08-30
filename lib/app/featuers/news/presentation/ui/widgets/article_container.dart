@@ -1,14 +1,15 @@
 import 'package:el_fathih/app/core/routing/exstintion.dart';
 import 'package:el_fathih/app/core/routing/routes.dart';
+import 'package:el_fathih/app/featuers/news/data/models/blog.dart';
 import 'package:el_fathih/app/shared/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ArticleContainer extends StatelessWidget {
   const ArticleContainer({
-    super.key,
+    super.key, required this.blog,
   });
-
+final Blog blog;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +17,7 @@ class ArticleContainer extends StatelessWidget {
       child: Center(
         child: GestureDetector(
           onTap: () {
-            context.pushNamed(Routes.articleView);
+            context.pushNamed(Routes.articleView, arguments: blog);
           },
           child: Container(
             height: 300.h,
@@ -40,8 +41,8 @@ class ArticleContainer extends StatelessWidget {
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(10.r),
                   ),
-                  child: Image.asset(
-                    'assets/image/stomach.png',
+                  child: Image.network(
+                    blog.imageUrl,
                     height: 180.h,
                     width: 345.w,
                     fit: BoxFit.cover,
@@ -51,8 +52,10 @@ class ArticleContainer extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(right: 10.w),
                   child: Text(
-                    'كيف تتخلصين من آلام الظهر أثناء الحمل؟',
+                    blog.title,
                     style: TextStyles.font20NevySemiBold,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 SizedBox(height: 2.h),
@@ -61,7 +64,7 @@ class ArticleContainer extends StatelessWidget {
                   child: SizedBox(
                     width: 325.w,
                     child: Text(
-                      'تعرفي على أسباب آلام الظهر أثناء الحمل وكيفية التعامل معها بطرق طبيعية. بالإضافة إلى تمارين تساعد في تقوية عضلات الظهر وتحسين الوضعية. و نصائح غذائية لتقليل الالتهابات. يينوصي بزيارة الطبيب إذا استمرت الآلام أو تفاقمت.',
+                      blog.introduction,
                       style: TextStyles.font14NevySemiBold,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,

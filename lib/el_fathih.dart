@@ -1,5 +1,4 @@
 import 'package:el_fathih/app/core/routing/app_router.dart';
-import 'package:el_fathih/app/core/routing/routes.dart';
 import 'package:el_fathih/app/shared/navigatio_bar_view.dart';
 import 'package:el_fathih/app/shared/theming/color.dart';
 import 'package:flutter/material.dart';

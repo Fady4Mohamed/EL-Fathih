@@ -1,7 +1,10 @@
+import 'package:el_fathih/app/featuers/news/presentation/manager/get_blogs_cubit/get_blogs_cubit.dart';
 import 'package:el_fathih/app/featuers/news/presentation/ui/widgets/article_container.dart';
+import 'package:el_fathih/app/featuers/news/presentation/ui/widgets/blogs_skilton.dart';
 import 'package:el_fathih/app/shared/theming/styles.dart';
 import 'package:el_fathih/app/shared/widgets/main_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewsView extends StatelessWidget {
@@ -12,7 +15,8 @@ class NewsView extends StatelessWidget {
     return Expanded(
       child: Directionality(
         textDirection: TextDirection.rtl,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MainAppBar(title: 'الأخبار'),
             Expanded(
@@ -26,13 +30,30 @@ class NewsView extends StatelessWidget {
                       style: TextStyles.font18GrayRegular,
                     ),
                   ),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 5,
-                    itemBuilder: (context,index) {
-                      return ArticleContainer();
-                    }
+                  BlocBuilder<GetBlogsCubit, GetBlogsState>(
+                    builder: (context, state) {
+                      if (state is GetBlogsLoading) {
+                        return BlogsSkilton();
+                      } else if (state is GetBlogsFailure) {
+                        return Center(child: Text(state.failure));
+                      } else if (state is GetBlogsSuccess) {
+                        var blog = BlocProvider.of<GetBlogsCubit>(
+                          context,
+                        ).blogs;
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: blog.data.blogs.length,
+                          itemBuilder: (context, index) {
+                            return ArticleContainer(
+                              blog: blog.data.blogs[index],
+                            );
+                          },
+                        );
+                      } else {
+                        return const SizedBox();
+                      }
+                    },
                   ),
                 ],
               ),
@@ -43,4 +64,3 @@ class NewsView extends StatelessWidget {
     );
   }
 }
-

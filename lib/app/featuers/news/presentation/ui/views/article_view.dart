@@ -1,3 +1,4 @@
+import 'package:el_fathih/app/featuers/news/data/models/blog.dart';
 import 'package:el_fathih/app/featuers/news/presentation/ui/widgets/article_content.dart';
 import 'package:el_fathih/app/shared/theming/color.dart';
 import 'package:el_fathih/app/shared/theming/styles.dart';
@@ -5,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ArticleView extends StatefulWidget {
-  const ArticleView({super.key});
-
+  const ArticleView({super.key, required this.blog});
+  final Blog blog;
   @override
   _ArticleViewState createState() => _ArticleViewState();
 }
@@ -17,7 +18,7 @@ class _ArticleViewState extends State<ArticleView>
   late AnimationController _slideController;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
-final  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   double _scrollOffset = 0.0;
 
   @override
@@ -88,9 +89,7 @@ final  ScrollController _scrollController = ScrollController();
                       child: Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                              'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-                            ),
+                            image: NetworkImage(widget.blog.imageUrl),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -118,7 +117,7 @@ final  ScrollController _scrollController = ScrollController();
                         child: SizedBox(
                           width: 200.w,
                           child: Text(
-                            '٦ طرق للاستمتاع بمغامرات الجبال هذا الصيف',
+                            widget.blog.title,
                             style: TextStyles.font20whiteSemiBold,
                           ),
                         ),
@@ -128,7 +127,7 @@ final  ScrollController _scrollController = ScrollController();
                 ),
               ),
               leading: IconButton(
-                icon:const Icon(Icons.arrow_back, color: ColorsManager.main),
+                icon: const Icon(Icons.arrow_back, color: ColorsManager.main),
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),
@@ -139,7 +138,7 @@ final  ScrollController _scrollController = ScrollController();
                   opacity: _fadeAnimation,
                   child: Container(
                     color: ColorsManager.white,
-                    child: ArticleContent(),
+                    child: ArticleContent(blog: widget.blog),
                   ),
                 ),
               ),
@@ -149,5 +148,4 @@ final  ScrollController _scrollController = ScrollController();
       ),
     );
   }
-
 }

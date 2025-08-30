@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class ApiServices {
   final Dio _dio;
 
-  final baseUrl = "";
+  final baseUrl = "https://philips-ten.vercel.app/";
 
   ApiServices(this._dio);
 

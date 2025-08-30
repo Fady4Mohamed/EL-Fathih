@@ -1,4 +1,5 @@
 import 'package:el_fathih/app/featuers/home/presentation/ui/home_view.dart';
+import 'package:el_fathih/app/featuers/news/presentation/manager/get_blogs_cubit/get_blogs_cubit.dart';
 import 'package:el_fathih/app/featuers/news/presentation/ui/views/news_view.dart';
 import 'package:el_fathih/app/featuers/profile/presentation/ui/profile_view.dart';
 import 'package:el_fathih/app/featuers/schedule/presentation/manager/parts_filter_cubit/parts_filter_cubit.dart';
@@ -33,8 +34,8 @@ class _NavigatioBarViewState extends State<NavigatioBarView> {
       child: const ScheduleView(),
     ),
     // News
-    const NewsView(),
-    // Profile 
+    BlocProvider(create: (context) => GetBlogsCubit()..getBlogs(), child: const NewsView()),
+    // Profile
     const ProfileView(),
   ];
   @override
@@ -45,7 +46,7 @@ class _NavigatioBarViewState extends State<NavigatioBarView> {
           color: ColorsManager.mainlight,
           height: 813.h,
           child: SafeArea(
-            top:choice!=3 ,
+            top: choice != 3,
             child: Container(
               color: ColorsManager.white,
               child: Column(

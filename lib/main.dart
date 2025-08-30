@@ -1,8 +1,11 @@
+import 'package:el_fathih/app/core/helper/setup_service_locator.dart';
 import 'package:el_fathih/el_fathih.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  setupServiceLocator();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
